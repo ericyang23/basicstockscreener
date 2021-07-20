@@ -72,6 +72,8 @@ def dashboard(request: Request, avg_volume = None, market_cap = None, dividend_y
         
     })
 
+#fetch data from yfinance api
+
 def fetch_stock_data(id: int):
     db = SessionLocal()
     stock = db.query(Stock).filter(Stock.id == id).first()
