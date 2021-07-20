@@ -1,0 +1,24 @@
+<script>
+    $(document).ready(function() {
+    $("#remove_stocks").click(function() {
+      var symbols = $("#symbols").val();
+
+      console.log(symbols);
+
+      var stockSymbols = symbols.split("\n");
+
+      console.log(stockSymbols)
+
+      for (var i=0; i<stockSymbols.length; ++i) {
+        console.log(stockSymbols[i]);
+
+        $.ajax({
+          url: '/stock',
+          type: 'REMOVE',
+          contentType: 'application/json',
+          data: JSON.stringify({"symbol": stockSymbols[i]}),
+          dataType: 'json'
+        });
+    })
+}); 
+</script>
